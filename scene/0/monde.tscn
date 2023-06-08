@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxsk1bmsnlovv"]
+
+[ext_resource type="Script" path="res://scene/0/monde.gd" id="1_3p2ia"]
+
+[node name="Monde" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_3p2ia")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.752941, 0.752941, 0.752941, 1)
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1

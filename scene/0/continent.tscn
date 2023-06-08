@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://djxsc3v2ksr1a"]
+
+[ext_resource type="Script" path="res://scene/0/continent.gd" id="1_3a0y2"]
+
+[node name="Continent" type="VBoxContainer"]
+size_flags_vertical = 8
+script = ExtResource("1_3a0y2")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.231373, 0.231373, 0.231373, 1)
+
+[node name="Domaine" type="Node2D" parent="."]

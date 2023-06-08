@@ -1,0 +1,36 @@
+2a60927148abd1d33b818b535e306557
+::res://::1686204110
+icon.png::CompressedTexture2D::2432420761471245026::1676094585::1686205214::1::::<><>::
+icon.svg::CompressedTexture2D::9162371498834860976::1679058444::1686205214::1::::<><>::
+README.md::TextFile::-1::1684809376::0::1::::<><>::
+::res://asset/::1686197518
+default_env.tres::Environment::-1::1677963175::0::1::::<><>::
+::res://asset/font/::1686197518
+2TECH2.TTF::FontFile::381374209107885041::1682126232::1686205214::1::::<><>::
+ALBA____.TTF::FontFile::4234611237747425266::1673874020::1686205214::1::::<><>::
+basic_label_setting.tres::LabelSettings::8721648622212071911::1682973059::0::1::::<><>::uid://dk3ytja0i6utv
+Marlboro.ttf::FontFile::1499582478604000857::1673874020::1686205214::1::::<><>::
+metal lord ot.otf::FontFile::3619300847126422558::1682126186::1686205214::1::::<><>::
+neuropolitical rg.otf::FontFile::2325526762121942984::1336566082::1686205214::1::::<><>::
+rimouski sb.otf::FontFile::2683584631797712805::1657615528::1686205214::1::::<><>::
+::res://asset/json/::1686205192
+::res://asset/png/::1684410263
+::res://asset/tileset/::1683808601
+::res://scene/::1686197518
+::res://scene/0/::1686205124
+continent.gd::GDScript::-1::1686201573::0::1::::<>VBoxContainer<>::
+continent.tscn::PackedScene::7839540313958120200::1686205124::0::1::::<><>::res://scene/0/continent.gd
+monde.gd::GDScript::-1::1686202012::0::1::::<>MarginContainer<>::
+monde.tscn::PackedScene::4038576559406776191::1686205124::0::1::::<><>::res://scene/0/monde.gd
+::res://scene/1/::1686205165
+domaine.gd::GDScript::-1::1686204740::0::1::::<>Node2D<>::
+domaine.tscn::PackedScene::7679289776100769326::1686205165::0::1::::<><>::res://scene/1/domaine.gd<>uid://vmn50n25lcld
+terres.gd::GDScript::-1::1686204913::0::1::::<>Polygon2D<>::
+terres.tscn::PackedScene::6975642567601522447::1686205124::0::1::::<><>::res://scene/1/terres.gd
+::res://scene/game/::1686205124
+Game.gd::GDScript::-1::1686198783::0::1::::<>Node<>::
+Game.tscn::PackedScene::8246655032211948728::1686205124::0::1::::<><>::res://scene/game/Game.gd
+::res://script/::1686205124
+Classes_0.gd::GDScript::-1::1686202919::0::1::::<>Node<>::
+Classes_1.gd::GDScript::-1::1686204875::0::1::::<>Node<>::
+Global.gd::GDScript::-1::1686205124::0::1::::<>Node<>::

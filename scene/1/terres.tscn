@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6nb2w54wmf2f"]
+
+[ext_resource type="Script" path="res://scene/1/terres.gd" id="1_46rcc"]
+
+[node name="Terres" type="Polygon2D"]
+script = ExtResource("1_46rcc")

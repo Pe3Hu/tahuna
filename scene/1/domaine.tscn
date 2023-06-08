@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhn51so3geily"]
+
+[ext_resource type="Script" path="res://scene/1/domaine.gd" id="1_u1ca7"]
+[ext_resource type="FontFile" uid="uid://vmn50n25lcld" path="res://asset/font/Marlboro.ttf" id="2_0ohb8"]
+
+[node name="Domaine" type="Node2D"]
+script = ExtResource("1_u1ca7")
+
+[node name="Terres" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0ohb8")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
