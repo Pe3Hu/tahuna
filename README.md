@@ -1,1 +1,1 @@
-![image](https://github.com/Pe3Hu/panga/assets/34793005/0c87c515-f478-4043-be95-56855bc66453)
+![image](https://github.com/Pe3Hu/tahuna/assets/34793005/261cba5c-56f6-4514-9026-142434d3d7d8)
