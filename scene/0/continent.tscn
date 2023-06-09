@@ -11,3 +11,7 @@ layout_mode = 2
 color = Color(0.231373, 0.231373, 0.231373, 1)
 
 [node name="Domaine" type="Node2D" parent="."]
+
+[node name="Frontière" type="Node2D" parent="."]
+
+[node name="Pilier" type="Node2D" parent="."]

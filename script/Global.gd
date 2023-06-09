@@ -52,10 +52,10 @@ func init_dict() -> void:
 		Vector2(-1,-1)
 	]
 	dict.neighbor.zero = [
-		Vector2( 0, 0),
 		Vector2( 1, 0),
 		Vector2( 1, 1),
-		Vector2( 0, 1)
+		Vector2( 0, 1),
+		Vector2( 0, 0)
 	]
 	dict.neighbor.hex = [
 		[
@@ -77,7 +77,7 @@ func init_dict() -> void:
 	]
 	
 	init_corner()
-	
+	init_terrain()
 
 
 func init_corner() -> void:
@@ -106,6 +106,31 @@ func init_corner() -> void:
 				dict.corner.vector[corners_][order_][_i] = vertex
 
 
+func init_terrain() -> void:
+	dict.terrain = {}
+	dict.terrain.index = []
+	var n = 4
+	var index = {}
+	index.current = 0
+	index.max = pow(2, n)
+	
+	while index.current < index.max:
+		var indexs = []
+		var temp = int(index.current)
+		
+		while temp > 0:
+			var _i = temp%2
+			temp /= 2
+			indexs.append(_i)
+		
+		while indexs.size() < n:
+			indexs.append(0)
+		
+		dict.terrain.index.append(indexs)
+		indexs.reverse()
+		index.current += 1
+	
+
 func init_title() -> void:
 	dict.title = {}
 	var path = "res://asset/json/wohnwagen_title_data.json"
@@ -120,7 +145,7 @@ func init_title() -> void:
 
 
 func init_arr() -> void:
-	arr.windrose = ["E","S","W","N"]
+	arr.windrose = ["NE", "E", "SE", "S", "SW", "W", "NW", "N"]
 
 
 func init_node() -> void:
@@ -132,6 +157,8 @@ func init_scene() -> void:
 	scene.continent = load("res://scene/0/continent.tscn")
 	scene.domaine = load("res://scene/1/domaine.tscn")
 	scene.terres = load("res://scene/1/terres.tscn")
+	scene.frontière = load("res://scene/1/frontière.tscn")
+	scene.pilier = load("res://scene/1/pilier.tscn")
 	
 
 
