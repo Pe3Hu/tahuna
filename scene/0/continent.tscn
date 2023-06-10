@@ -2,7 +2,12 @@
 
 [ext_resource type="Script" path="res://scene/0/continent.gd" id="1_3a0y2"]
 
-[node name="Continent" type="VBoxContainer"]
+[node name="Continent" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 8
 script = ExtResource("1_3a0y2")
 

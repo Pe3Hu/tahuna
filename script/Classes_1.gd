@@ -1,5 +1,6 @@
 extends Node
 
+
 #столб pilier 
 class Pilier:
 	var obj = {}
@@ -8,16 +9,22 @@ class Pilier:
 	var scene = {}
 
 
-	func _init(input_):
+	func _init(input_: Dictionary):
 		vec.grid = input_.grid
 		obj.continent = input_.continent
+		obj.palette = input_.palette
 		dict.neighbor = {}
 		init_scene()
 
 
 	func init_scene() -> void:
 		scene.myself = Global.scene.pilier.instantiate()
-		obj.continent.scene.myself.get_node("Pilier").add_child(scene.myself)
+		
+		if obj.continent != null:
+			obj.continent.scene.myself.get_node("Pilier").add_child(scene.myself)
+		if obj.palette != null:
+			obj.palette.scene.myself.get_node("Pilier").add_child(scene.myself)
+		
 		scene.myself.set_parent(self)
 
 
@@ -33,8 +40,9 @@ class Frontière:
 	var scene = {}
 
 
-	func _init(input_):
+	func _init(input_: Dictionary):
 		obj.continent = input_.continent
+		obj.palette = input_.palette
 		arr.pilier = input_.piliers
 		arr.terres = []
 		word.terrain = null
@@ -44,7 +52,12 @@ class Frontière:
 
 	func init_scene() -> void:
 		scene.myself = Global.scene.frontière.instantiate()
-		obj.continent.scene.myself.get_node("Frontière").add_child(scene.myself)
+		
+		if obj.continent != null:
+			obj.continent.scene.myself.get_node("Frontière").add_child(scene.myself)
+		if obj.palette != null:
+			obj.palette.scene.myself.get_node("Frontière").add_child(scene.myself)
+		
 		scene.myself.set_parent(self)
 
 
@@ -75,12 +88,12 @@ class Terres:
 	var scene = {}
 
 
-	func _init(input_):
+	func _init(input_: Dictionary):
 		num.index = Global.num.index.terres
 		Global.num.index.terres += 1
 		obj.domaine = input_.domaine
 		obj.frontière = input_.frontière
-		obj.frontière.arr.terres.append(self) 
+		obj.frontière.arr.terres.append(self)
 		word.terrain = null
 		init_scene()
 
@@ -101,7 +114,6 @@ class Terres:
 		obj.frontière.set_terrain()
 
 
-
 #область domaine
 class Domaine:
 	var num = {}
@@ -114,6 +126,7 @@ class Domaine:
 
 	func _init(input_):
 		obj.continent = input_.continent
+		obj.palette = input_.palette
 		vec.grid = input_.grid
 		num.index = Global.num.index.domaine
 		Global.num.index.domaine += 1
@@ -126,7 +139,12 @@ class Domaine:
 
 	func init_scene() -> void:
 		scene.myself = Global.scene.domaine.instantiate()
-		obj.continent.scene.myself.get_node("Domaine").add_child(scene.myself)
+		
+		if obj.continent != null:
+			obj.continent.scene.myself.get_node("Domaine").add_child(scene.myself)
+		if obj.palette != null:
+			obj.palette.scene.myself.get_node("Domaine").add_child(scene.myself)
+		
 		scene.myself.set_parent(self)
 
 
@@ -135,11 +153,20 @@ class Domaine:
 		
 		for _i in Global.dict.neighbor.zero.size():
 			var direction = Global.dict.neighbor.zero[_i]
-			var grid = vec.grid + direction
-			var pilier = obj.continent.arr.pilier[grid.y][grid.x]
+			var grid = direction + vec.grid
+			var pilier = null
+				
+			if obj.continent != null:
+				pilier = obj.continent.arr.pilier[grid.y][grid.x]
+			if obj.palette != null:
+				pilier = obj.palette.arr.pilier[grid.y][grid.x]
+			
 			var index_windrose = _i * 2
 			var windrose = Global.arr.windrose[index_windrose]
 			dict.pilier[pilier] = windrose
+			
+			if obj.palette != null:
+				print(pilier, dict.pilier[pilier])
 
 
 	func init_terres() -> void:
@@ -148,6 +175,8 @@ class Domaine:
 		for _i in dict.pilier.keys().size():
 			var input = {}
 			input.domaine = self
+			input.frontière = null
+			
 			var _j = (_i + 1) % dict.pilier.keys().size()
 			var indexs = [_i, _j]
 			var piliers = []
@@ -156,15 +185,22 @@ class Domaine:
 				var pilier = dict.pilier.keys()[index]
 				piliers.append(pilier)
 			
-			input.frontière = obj.continent.dict.frontière[piliers.front()][piliers.back()]
+			if obj.continent != null:
+				input.frontière = obj.continent.dict.frontière[piliers.front()][piliers.back()]
+			if obj.palette != null:
+				input.frontière = obj.palette.dict.frontière[piliers.front()][piliers.back()]
+			
 			var terres = Classes_1.Terres.new(input)
 			var index_windrose = _i * 2 + 1
 			dict.terres[terres] = Global.arr.windrose[index_windrose]
+			if obj.palette != null:
+				print(terres, dict.terres[terres])
 
 
 	func set_terrain() -> void:
 		var terrains = Global.get_random_element(Global.dict.terrain.index)
-		
+		print(terrains)
 		for _i in dict.terres.keys().size():
 			var terres = dict.terres.keys()[_i]
+			print(terres, terrains[_i])
 			terres.set_terrain(terrains[_i])

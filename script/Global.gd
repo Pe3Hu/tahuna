@@ -159,6 +159,8 @@ func init_scene() -> void:
 	scene.terres = load("res://scene/1/terres.tscn")
 	scene.frontière = load("res://scene/1/frontière.tscn")
 	scene.pilier = load("res://scene/1/pilier.tscn")
+	scene.palette = load("res://scene/2/palette.tscn")
+	scene.palette_domaine = load("res://scene/2/palette_domaine.tscn")
 	
 
 

@@ -7,6 +7,12 @@ var parent = null
 func set_parent(parent_) -> void:
 	parent = parent_
 	position = parent.vec.grid * Global.num.size.domaine.d
+	
+	if parent.obj.continent != null:
+		position += parent.obj.continent.vec.offset
+	if parent.obj.palette != null:
+		position += parent.obj.palette.vec.offset
+	
 	set_vertexs()
 
 
@@ -17,7 +23,7 @@ func set_vertexs() -> void:
 	var vertexs = []
 	
 	for corner in corners:
-		var vertex = Global.dict.corner.vector[corners][order][corner]*r
+		var vertex = Global.dict.corner.vector[corners][order][corner] * r
 		vertexs.append(vertex)
 	
 	set_polygon(vertexs)

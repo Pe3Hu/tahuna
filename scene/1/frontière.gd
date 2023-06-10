@@ -23,10 +23,11 @@ func update_color_by_terrain() -> void:
 	
 	match parent.word.terrain:
 		"jungle":
-			h = 120/max_h
+			h = 210/max_h#120/max_h
 		"mountain":
-			h = 60/max_h
+			h = 0/max_h#60/max_h
 		null:
 			return
 	
+	print(parent.word.terrain)
 	default_color = Color.from_hsv(h,s,v)
